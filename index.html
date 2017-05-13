@@ -15,6 +15,7 @@
     <title>Pablo & Mari</title>
 
     <script type="text/javascript" src="http://momentjs.com/downloads/moment.min.js"></script>
+    <script type="text/javascript" src="moment.precise.diff.js"></script>
     <!-- Google Analytics -->
     <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -84,31 +85,25 @@ ga('send', 'pageview');
 var timer = function() {
 var wedding = moment("2014-09-13 18:00:00");
 var now = moment();
-var years = now.diff(wedding, 'years');
-document.getElementById('js-year').innerHTML = "" + years;
-document.getElementById('js-year-label').innerHTML = years < 2 ? 'año' : 'años';
+var diff = moment.preciseDiff(wedding, now, true)
 
-wedding.add(years, 'years');
+document.getElementById('js-year').innerHTML = diff.years;
+document.getElementById('js-year-label').innerHTML = diff.years == 1 ? 'año' : 'años';
 
-var months = now.diff(wedding, 'months');
-document.getElementById('js-month').innerHTML = "" + months;
-document.getElementById('js-month-label').innerHTML = months == 1? 'mes' : 'meses';
+document.getElementById('js-month').innerHTML = diff.months;
+document.getElementById('js-month-label').innerHTML = diff.months == 1 ? 'mes' : 'meses';
 
-var days = now.diff(wedding, 'days');
-document.getElementById('js-day').innerHTML = "" + days;
-document.getElementById('js-day-label').innerHTML = days == 1? 'día' : 'días';
+document.getElementById('js-day').innerHTML = diff.days;
+document.getElementById('js-day-label').innerHTML = diff.days == 1 ? 'día' : 'días';
 
-var hours = now.diff(wedding.add(days, 'days'), 'hours');
-document.getElementById('js-hour').innerHTML = "" + hours;
-document.getElementById('js-hour-label').innerHTML = hours == 1? 'hora' : 'horas';
+document.getElementById('js-hour').innerHTML = diff.hours;
+document.getElementById('js-hour-label').innerHTML = diff.hours == 1 ? 'hora' : 'horas';
 
-var minutes = now.diff(wedding.add(hours, 'hours'), 'minutes');
-document.getElementById('js-minute').innerHTML = "" + minutes;
-document.getElementById('js-minute-label').innerHTML = minutes == 1? 'minuto' : 'minutos';
+document.getElementById('js-minute').innerHTML = diff.minutes;
+document.getElementById('js-minute-label').innerHTML = diff.minutes == 1 ? 'minuto' : 'minutos';
 
-var seconds = now.diff(wedding.add(minutes, 'minutes'), 'seconds');
-document.getElementById('js-second').innerHTML = "" + seconds;
-document.getElementById('js-second-label').innerHTML = seconds == 1? 'segundo' : 'segundos';
+document.getElementById('js-second').innerHTML = diff.seconds;
+document.getElementById('js-second-label').innerHTML = diff.seconds == 1 ? 'segundo' : 'segundos';
 }
 
 timer();
