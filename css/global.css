@@ -1,0 +1,143 @@
+.body {
+  margin: 0;
+
+  color: #7EB550;
+  font-family: 'Courgette', cursive;
+}
+
+.app {
+  padding-top: 25vh;
+  height: 75vh;
+
+  background-color: white;
+}
+
+.app__element {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  width: 800px;
+
+  /*color: #bbb;*/
+  font-family: 'Montez', cursive;
+}
+
+.title__item--is-text {
+  font-size: 70px;
+  font-weight: 100;
+}
+
+.title__item--is-image {
+  width: 300px;
+  height: 300px;
+  background: url('/assets/head.jpg') no-repeat center center;
+  background-position: 40% 32%;
+  border-radius: 99999px;
+  box-shadow: 0px 0px 50px #7EB550;
+}
+
+.timer {
+  margin-top: 5vh;
+
+  font-size: 30px;
+}
+
+.timer__number {
+  font-family: monospace;
+  font-weight: 600;
+}
+
+.separator {
+  height: 300px;
+  width: 100%;
+
+  background: url('/assets/ramo.jpg') no-repeat center center;
+  background-position: 50% 68%;
+  background-size: cover;
+}
+
+.poem {
+  margin: 100px auto;
+  font-size: 20px;
+  width: 400px;
+
+  text-align: left;
+}
+
+.poem__quote {
+  text-align: right;
+}
+
+.poem__quote:before {
+  content: '-';
+}
+
+.footer {
+  margin-top: 100px;
+  padding-bottom: 20px;
+
+  text-align: center;
+}
+
+.footer:before {
+  content: ' ';
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  width: 1000px;
+  border-top: 1px dashed #7eb550;
+}
+
+.app:after {
+  content: '↓';
+  position: relative;
+  font-size: 35px;
+  left: 50%;
+  text-align: center;
+
+}
+
+@media (max-width: 767px) {
+  .title {
+    flex-direction: column;
+    width: auto;
+  }
+
+  .title__item--is-image {
+    height: 100px;
+    width: 100px;
+  }
+
+  .separator {
+    height: 150px;
+  }
+}
+
+@media (max-width: 400px) {
+  .poem {
+    width: 255px;
+  }
+}
+
+@media (max-width: 730px) {
+  .app {
+    padding-top: 15vh;
+    height: 85vh;
+  }
+
+  .timer {
+    margin: 6vh auto;
+    font-size: 15px;
+  }
+
+  .app:after {
+    bottom: 35px;
+
+  }
+}
